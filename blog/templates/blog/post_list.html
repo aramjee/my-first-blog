@@ -9,16 +9,16 @@
 	<title>Amit's Blog</title>
 </head>
 <body>
-	<header class="page-header">
-    <div class="container">
+	<header>
         <h1><a href="/">Django Tutorial</a></h1>
-    </div>
 </header>
-        <Article>
-            <time>published: 01.16.2022, 18:28</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Used pythonanywhere.com to deploy this website.</p>
-        </Article>
+{% for post in posts %}
+        <article>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+{% endfor %}
     <p>Hi there!</p>
     <p>It works!</p>
 </body>
